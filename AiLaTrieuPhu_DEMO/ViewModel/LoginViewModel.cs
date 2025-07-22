@@ -50,10 +50,10 @@ namespace AiLaTrieuPhu_DEMO.ViewModel
                 // HIỆN THÔNG BÁO CHÀO MỪNG NGƯỜI DÙNG
                 MessageBox.Show($"Chào mừng, {acc.Username}!", "Đăng nhập thành công", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                if (acc.Role == "Admin")
+                if (acc.Role.Trim().ToLower() == "admin")
                 {
                     var adminWin = new AdminMenu();
-                   adminWin.Show();
+                    adminWin.Show();
                     MessageBox.Show("Welcome to the Admin Dashboard!");
                 }
                 else

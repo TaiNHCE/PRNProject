@@ -1,58 +1,58 @@
 [
   {
     "Username": "admin",
-    "Password": "admin123",
+    "Password": "0192023a7bbd73250516f069df18b500",
     "Email": "admin@gmail.com",
     "Role": "Admin",
     "IsLocked": false
   },
   {
     "Username": "guest1",
-    "Password": "123456",
+    "Password": "e10adc3949ba59abbe56e057f20f883e",
     "Email": "guest1@example.com",
     "Role": "Guest",
     "IsLocked": false
   },
   {
     "Username": "pha",
-    "Password": "123456",
+    "Password": "e10adc3949ba59abbe56e057f20f883e",
     "Email": "pha@gmail.com",
     "Role": "Guest",
     "IsLocked": false
   },
   {
     "Username": "tai12",
-    "Password": "111111",
+    "Password": "96e79218965eb72c92a549dd5a330112",
     "Email": "nguyenhuutai136mk@gmail.com",
     "Role": "Guest",
     "IsLocked": false
   },
   {
-    "Username": "bbbb",
-    "Password": "123456",
-    "Email": "bbbb@gmail.com",
-    "Role": "Guest",
-    "IsLocked": false
-  },
-  {
     "Username": "huutai",
-    "Password": "123456",
+    "Password": "e10adc3949ba59abbe56e057f20f883e",
     "Email": "nguyenhuutai123xxx@gmail.com",
     "Role": "Guest",
     "IsLocked": false
   },
   {
     "Username": "huutai12",
-    "Password": "123456",
+    "Password": "e10adc3949ba59abbe56e057f20f883e",
     "Email": "nguyenhuutai.dev@gmail.com",
     "Role": "Guest",
     "IsLocked": false
   },
   {
     "Username": "tai122",
-    "Password": "111111",
+    "Password": "96e79218965eb72c92a549dd5a330112",
     "Email": "huutai0207.dev@gmail.com",
     "Role": "Guest",
-    "IsLocked": true
+    "IsLocked": false
+  },
+  {
+    "Username": "pha1",
+    "Password": "96e79218965eb72c92a549dd5a330112",
+    "Email": "pha12@gmail.com",
+    "Role": "Guest",
+    "IsLocked": false
   }
 ]
