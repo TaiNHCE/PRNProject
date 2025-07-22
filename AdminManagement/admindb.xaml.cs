@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 using AdminManagement.View;
-using AiLaTrieuPhu_Account.Helper;  // Bạn phải Add Reference sang project Account
-using AiLaTrieuPhu_Account.Model;
-using Menu_Game;
+using AiLaTrieuPhu_DEMO.ViewModel;  // Bạn phải Add Reference sang project Account
+using AiLaTrieuPhu_DEMO.Model;
+
 
 
 namespace AdminManagement
@@ -34,7 +34,7 @@ namespace AdminManagement
         
         private void exit_Click(object sender, RoutedEventArgs e)
         {
-            MenuGame menu = new MenuGame();
+            MenuGameWindow menu = new MenuGameWindow();
             menu.Show();
             this.Close();
         }

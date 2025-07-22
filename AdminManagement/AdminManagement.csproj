@@ -9,6 +9,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\AiLaTrieuPhu_Account\AiLaTrieuPhu_Account.csproj" />
 		<ProjectReference Include="..\AiLaTrieuPhu_DEMO\AiLaTrieuPhu_DEMO.csproj" />
 		<ProjectReference Include="..\Menu_Game\Menu_Game.csproj" />
 	</ItemGroup>

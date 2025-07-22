@@ -146,7 +146,7 @@
             <Border CornerRadius="15" Margin="20,-18,40,310">
                 <!-- Dùng ảnh làm nền qua Background -->
                 <Border.Background>
-                    <ImageBrush ImageSource="Image/laivansam.png" Stretch="UniformToFill"/>
+                    <ImageBrush ImageSource="View/Image/laivansam.png" Stretch="UniformToFill"/>
                 </Border.Background>
 
                 <Border.Effect>

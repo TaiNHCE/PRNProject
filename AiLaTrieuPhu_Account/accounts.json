@@ -14,13 +14,6 @@
     "IsLocked": false
   },
   {
-    "Username": "pha",
-    "Password": "123456",
-    "Email": "pha@gmail.com",
-    "Role": "Guest",
-    "IsLocked": false
-  },
-  {
     "Username": "tai12",
     "Password": "111111",
     "Email": "nguyenhuutai136mk@gmail.com",
@@ -46,7 +39,7 @@
     "Password": "123456",
     "Email": "nguyenhuutai.dev@gmail.com",
     "Role": "Guest",
-    "IsLocked": false
+    "IsLocked": true
   },
   {
     "Username": "tai122",
@@ -54,5 +47,12 @@
     "Email": "huutai0207.dev@gmail.com",
     "Role": "Guest",
     "IsLocked": true
+  },
+  {
+    "Username": "khiemliem",
+    "Password": "123456",
+    "Email": "khiem234234@gmail.com",
+    "Role": "Guest",
+    "IsLocked": false
   }
 ]

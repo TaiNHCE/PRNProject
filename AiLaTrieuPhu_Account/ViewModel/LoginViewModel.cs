@@ -52,10 +52,9 @@ namespace AiLaTrieuPhu_Account.ViewModel
 
                 if (acc.Role == "Admin")
                 {
-                    // Mở giao diện admin
-                    // var adminWin = new AdminDashboardWindow();
-                    // adminWin.Show();
-                    MessageBox.Show("Chuyển đến Admin Dashboard (bạn hãy mở AdminDashboardWindow ở đây)");
+                    var adminWin = new AdminManagement.admindb();
+                    adminWin.Show();
+                    MessageBox.Show("Welcome to the Admin Dashboard!");
                 }
                 else
                 {

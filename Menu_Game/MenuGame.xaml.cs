@@ -2,8 +2,8 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Media;
-using AiLaTrieuPhu_Account.Helper;
-using AiLaTrieuPhu_Account.Model;
+using AiLaTrieuPhu_DEMO.ViewModel;
+using AiLaTrieuPhu_DEMO.Model;
 using AiLaTrieuPhu_DEMO;
 
 namespace Menu_Game
@@ -53,7 +53,7 @@ namespace Menu_Game
 
         private void StartGame_Click(object sender, RoutedEventArgs e)
         {
-            var loginWin = new AiLaTrieuPhu_Account.View.LoginWindow();
+            var loginWin = new AiLaTrieuPhu_DEMO.View.LoginWindow();
             var result = loginWin.ShowDialog();
 
             if (result == true)

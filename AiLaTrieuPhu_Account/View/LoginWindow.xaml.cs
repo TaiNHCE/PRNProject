@@ -21,6 +21,24 @@ namespace AiLaTrieuPhu_Account.View
                 if (!string.IsNullOrEmpty(vm.Username) && !string.IsNullOrEmpty(vm.Password))
                 {
                     vm.Login(this);
+
+                    // THÊM đoạn này để mở window đúng role
+                    if (vm.LoginAccount != null)
+                    {
+                        if (vm.LoginAccount.Role == "Admin")
+                        {
+                            // Mở giao diện admin ở đây
+                            var adminWin = new AdminManagement.admindb();
+                            adminWin.Show();
+                        }
+                        else
+                        {
+                            // Mở giao diện user/game ở đây
+                            var mainWin = new AiLaTrieuPhu_DEMO.MainWindow();
+                            mainWin.Show();
+                        }
+                        this.Close();
+                    }
                 }
                 else
                 {
