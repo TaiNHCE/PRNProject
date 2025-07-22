@@ -4,21 +4,35 @@ using System.Linq;
 using System.Text.Json;
 using System.Windows;
 using AiLaTrieuPhu_DEMO.Model;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace AiLaTrieuPhu_DEMO.ViewModel
 {
     public static class AccountService
     {
         // Đường dẫn tới accounts.json nằm ở thư mục project
-
         private static readonly string FilePath = Path.Combine(
-     Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.Parent.FullName,
-     "AiLaTrieuPhu_Account", "accounts.json");
-
-
-
+            Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.Parent.FullName,
+            "AiLaTrieuPhu_DEMO", "accounts.json");
 
         public static Account CurrentAccount { get; set; }
+
+        // ------------------ MD5 Helper ------------------
+        public static string EncodeMD5(string input)
+
+        {
+            using (var md5 = MD5.Create())
+            {
+                byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+                byte[] hashBytes = md5.ComputeHash(inputBytes);
+                StringBuilder sb = new StringBuilder();
+                foreach (var b in hashBytes)
+                    sb.Append(b.ToString("x2"));
+                return sb.ToString();
+            }
+        }
+        // ------------------ End MD5 Helper ------------------
 
         // Load all accounts
         public static List<Account> LoadAccounts()
@@ -35,13 +49,17 @@ namespace AiLaTrieuPhu_DEMO.ViewModel
             File.WriteAllText(FilePath, JsonSerializer.Serialize(accounts, new JsonSerializerOptions { WriteIndented = true }));
         }
 
-        // Login by username & password
+        // -------- LOGIN --------
         public static Account Login(string username, string password)
         {
+
             var accounts = LoadAccounts();
+            string encodedPw = EncodeMD5(password); // Mã hóa password nhập vào
+
+
             var acc = accounts.FirstOrDefault(a =>
-                a.Username.Trim().Equals(username.Trim(), StringComparison.OrdinalIgnoreCase) &&
-                a.Password == password);
+                a.Username.Trim().Equals(username.Trim(), System.StringComparison.OrdinalIgnoreCase) &&
+                a.Password == encodedPw);
 
             if (acc != null)
             {
@@ -55,7 +73,7 @@ namespace AiLaTrieuPhu_DEMO.ViewModel
             return acc;
         }
 
-        // Register new account (with email, check duplicate username/email)
+        // -------- REGISTER --------
         public static bool Register(string username, string password, string email, string role = "Guest")
         {
             try
@@ -67,7 +85,7 @@ namespace AiLaTrieuPhu_DEMO.ViewModel
                 var newAcc = new Account
                 {
                     Username = username,
-                    Password = password,
+                    Password = EncodeMD5(password),  // Mã hóa mật khẩu
                     Email = email,
                     Role = role
                 };
@@ -77,26 +95,26 @@ namespace AiLaTrieuPhu_DEMO.ViewModel
 
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
                 return false;
             }
         }
 
-        // Find by email (for forgot password)
+        // -------- FIND BY EMAIL --------
         public static Account FindByEmail(string email)
         {
             var accounts = LoadAccounts();
             return accounts.FirstOrDefault(a => a.Email == email);
         }
 
-        // Change password by email (forgot password)
+        // -------- CHANGE PASSWORD (FORGOT PASSWORD) --------
         public static bool ChangePassword(string email, string newPassword)
         {
             var accounts = LoadAccounts();
             var acc = accounts.FirstOrDefault(a => a.Email == email);
             if (acc == null) return false;
-            acc.Password = newPassword;
+            acc.Password = EncodeMD5(newPassword); // Mã hóa mật khẩu mới!
             SaveAccounts(accounts);
             return true;
         }
