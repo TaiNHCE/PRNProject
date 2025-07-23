@@ -17,6 +17,7 @@ namespace AiLaTrieuPhu_DEMO.View
         // Gửi mã OTP
         private void SendOtp_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             var email = emailBox.Text.Trim();
             if (string.IsNullOrEmpty(email))
             {
@@ -46,6 +47,7 @@ namespace AiLaTrieuPhu_DEMO.View
         // Đặt lại mật khẩu
         private void ResetPassword_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             var email = emailBox.Text.Trim();
             var otp = otpBox.Text.Trim();
             var newPass = newPassBox.Password;
@@ -89,6 +91,7 @@ namespace AiLaTrieuPhu_DEMO.View
         }
         private void BackToLogin_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             this.Close();
         }
 

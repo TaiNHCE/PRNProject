@@ -147,11 +147,6 @@
             <!-- Menu Buttons -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
 
-                <Button Content="THÔNG TIN" 
-                        Width="120" Height="45" 
-                        Margin="10,0"
-                        Style="{StaticResource MenuButtonStyle}"/>
-
                 <Button Content="CHƠI GAME" 
                         Width="120" Height="45" 
                         Margin="10,0"
@@ -161,7 +156,8 @@
                 <Button Content="THOÁT GAME" 
                         Width="120" Height="45" 
                         Margin="10,0"
-                        Style="{StaticResource MenuButtonStyle}"/>
+                        Style="{StaticResource MenuButtonStyle}"
+                        Click="Quit_Click"/>
 
                 <Button x:Name="btnGioiThieu" Content="GIỚI THIỆU" 
                     Width="120" Height="45" 

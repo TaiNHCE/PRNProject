@@ -54,5 +54,12 @@
     "Email": "pha12@gmail.com",
     "Role": "Guest",
     "IsLocked": false
+  },
+  {
+    "Username": "111",
+    "Password": "96e79218965eb72c92a549dd5a330112",
+    "Email": "11@gmail.com",
+    "Role": "Guest",
+    "IsLocked": false
   }
 ]

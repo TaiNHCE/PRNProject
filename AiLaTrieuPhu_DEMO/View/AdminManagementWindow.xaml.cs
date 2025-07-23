@@ -51,6 +51,7 @@ namespace AiLaTrieuPhu_DEMO.View
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             string json = JsonSerializer.Serialize(questionList, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(filePath, json);
             MessageBox.Show("✅ Danh sách câu hỏi đã được lưu!");
@@ -58,6 +59,7 @@ namespace AiLaTrieuPhu_DEMO.View
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             if (string.IsNullOrWhiteSpace(txtQuestion.Text) || cmbCorrect.SelectedItem == null)
             {
                 MessageBox.Show("⚠️ Vui lòng nhập câu hỏi và chọn đáp án đúng");
@@ -79,6 +81,7 @@ namespace AiLaTrieuPhu_DEMO.View
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             if (questionDataGrid.SelectedItem is Question q)
             {
                 q.QuestionText = txtQuestion.Text;
@@ -97,6 +100,7 @@ namespace AiLaTrieuPhu_DEMO.View
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             if (questionDataGrid.SelectedItem is Question q)
             {
                 questionList.Remove(q);
@@ -107,6 +111,7 @@ namespace AiLaTrieuPhu_DEMO.View
 
         private void questionDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             if (questionDataGrid.SelectedItem is Question q)
             {
                 txtQuestion.Text = q.QuestionText;
@@ -122,6 +127,7 @@ namespace AiLaTrieuPhu_DEMO.View
         }
         private void Search_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             string keyword = txtSearch.Text.Trim().ToLower();
             if (string.IsNullOrEmpty(keyword))
             {
@@ -136,6 +142,7 @@ namespace AiLaTrieuPhu_DEMO.View
 
         private void ClearSearch_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             txtSearch.Text = "";
             questionList = new ObservableCollection<Question>(originalList);
             questionDataGrid.ItemsSource = questionList;
@@ -157,12 +164,14 @@ namespace AiLaTrieuPhu_DEMO.View
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             MenuGameWindow menu = new MenuGameWindow();
             menu.Show();
             this.Close();
         }
         private void Back_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             AdminMenu menu = new AdminMenu();
             menu.Show();
             this.Close();

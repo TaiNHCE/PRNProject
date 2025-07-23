@@ -15,6 +15,7 @@ namespace AiLaTrieuPhu_DEMO.View
 
         private void OnLoginClick(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             if (DataContext is LoginViewModel vm)
             {
                 // Gán password từ PasswordBox vào ViewModel
@@ -34,12 +35,14 @@ namespace AiLaTrieuPhu_DEMO.View
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             var regWin = new RegisterWindow();
             regWin.ShowDialog();
         }
 
         private void ForgotPassword_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             var forgotWin = new ForgotPasswordWindow();
             forgotWin.ShowDialog();
         }

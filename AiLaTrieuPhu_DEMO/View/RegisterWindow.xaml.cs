@@ -12,6 +12,7 @@ namespace AiLaTrieuPhu_DEMO.View
 
         private void OnRegisterClick(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             if (DataContext is RegisterViewModel vm)
             {
                 vm.Password = passwordBox.Password;
@@ -20,6 +21,7 @@ namespace AiLaTrieuPhu_DEMO.View
         }
         private void BackToLogin_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             this.Close();
         }
 
