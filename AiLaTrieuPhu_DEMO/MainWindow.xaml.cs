@@ -11,7 +11,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using System.Windows.Threading;
-using ResultWindow;
+using AiLaTrieuPhu_DEMO.View;
 
 
 namespace AiLaTrieuPhu_DEMO
@@ -58,7 +58,8 @@ namespace AiLaTrieuPhu_DEMO
             {
                 timer.Stop();
                 MessageBox.Show("Hết thời gian!");
-                Application.Current.Shutdown();
+                //Application.Current.Shutdown();
+                this.Close();
             }
         }
 
@@ -99,7 +100,7 @@ namespace AiLaTrieuPhu_DEMO
                 timer.Stop();
 
                 // Sử dụng WPF ResultWindow thay vì WinForms
-                var resultWindow = new ResultWindow1("Hoàn thành!", "🎉 KẾT QUẢ CUỐI CÙNG", score, 15);
+                var resultWindow = new Result("Hoàn thành!", "🎉 KẾT QUẢ CUỐI CÙNG", score, 15);
                 bool? result = resultWindow.ShowDialog();
 
                 SaveHighScore(score);
@@ -190,10 +191,12 @@ namespace AiLaTrieuPhu_DEMO
                     if (result == MessageBoxResult.No)
                     {
                         timer.Stop();
-                        var resultWindow = new ResultWindow1("Bạn đã dừng cuộc chơi!", "📦 NHẬN GIẢI", score, 15);
+                        this.Close();
+                        var resultWindow = new Result("Bạn đã dừng cuộc chơi!", "📦 NHẬN GIẢI", score, 15);
                         resultWindow.ShowDialog();
                         SaveHighScore(score);
-                        Application.Current.Shutdown();
+                        //Application.Current.Shutdown();
+                        
                         return;
                     }
                 }
@@ -226,10 +229,12 @@ namespace AiLaTrieuPhu_DEMO
                     safePrize = prizes[9]; // Mốc câu 10
                 }
 
-                var resultWindow = new ResultWindow1("Bạn đã thua cuộc!", $"💥 GAME OVER\n🎁 Giải thưởng an toàn: {safePrize}", safeScore, 15);
+                this.Close();
+                var resultWindow = new Result("Bạn đã thua cuộc!", $"💥 GAME OVER\n🎁 Giải thưởng an toàn: {safePrize}", safeScore, 15);
                 resultWindow.ShowDialog();
                 SaveHighScore(safeScore);
-                Application.Current.Shutdown();
+                //Application.Current.Shutdown();
+                
             }
         }
 
@@ -271,6 +276,7 @@ namespace AiLaTrieuPhu_DEMO
 
         private void btnResume_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             btnPause.IsEnabled = true;
             btnResume.IsEnabled = false;
             timer.Start();
@@ -279,6 +285,7 @@ namespace AiLaTrieuPhu_DEMO
 
         private void btnPause_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             btnPause.IsEnabled = false;
             btnResume.IsEnabled = true;
             timer.Stop();
@@ -314,6 +321,7 @@ namespace AiLaTrieuPhu_DEMO
 
         private void btnNewGame_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             // Reset game state
             currentQuestionIndex = 0;
             score = 0;
@@ -370,6 +378,7 @@ namespace AiLaTrieuPhu_DEMO
 
         private void btnQuit_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             // Show confirmation dialog
             MessageBoxResult result = MessageBox.Show(
                 "Bạn có chắc chắn muốn thoát game không?\nTiến trình hiện tại sẽ bị mất!",
@@ -386,7 +395,8 @@ namespace AiLaTrieuPhu_DEMO
                 }
 
                 // Close application
-                Application.Current.Shutdown();
+                //Application.Current.Shutdown();
+                this.Close();
 
                 // Alternative: Close only this window if you have multiple windows
                 // this.Close();
@@ -445,6 +455,7 @@ namespace AiLaTrieuPhu_DEMO
         private bool usedExperts = false;
         private void btnExperts_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             if (usedExperts) return;
 
             usedExperts = true;

@@ -9,12 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Music\clickar.wav" />
     <None Remove="View\Image\laivansam.png" />
     <None Remove="View\Image_AboutUs\TruongHoangMinh.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ResultWindow\ResultWindow.csproj" />
+    <Content Include="Music\clickar.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

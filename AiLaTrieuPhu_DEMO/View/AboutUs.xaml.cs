@@ -27,6 +27,7 @@ namespace AiLaTrieuPhu_DEMO.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             MenuGameWindow mainWindow = new MenuGameWindow();
             mainWindow.Show();
             this.Close();

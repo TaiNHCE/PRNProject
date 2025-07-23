@@ -54,6 +54,7 @@ namespace AiLaTrieuPhu_DEMO.View
 
         private void StartGame_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             var loginWin = new AiLaTrieuPhu_DEMO.View.LoginWindow();
             var result = loginWin.ShowDialog();
 
@@ -80,6 +81,7 @@ namespace AiLaTrieuPhu_DEMO.View
 
         private void AboutUs_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             MenuMusicController.StopMenuMusic();
             AboutUs aboutUs = new AboutUs();
             aboutUs.Show();
@@ -88,15 +90,17 @@ namespace AiLaTrieuPhu_DEMO.View
 
         private void HowToPlay_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             MenuMusicController.StopMenuMusic();
             HowToPlay howToPlay = new HowToPlay();
             howToPlay.Show();
             this.Close();
         }
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
+        private void Quit_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            SoundHelper.PlayClick();
+            this.Close();
         }
 
         private void HuongDan_Click(object sender, RoutedEventArgs e)

@@ -20,6 +20,7 @@ namespace AiLaTrieuPhu_DEMO.View
 
         private void acc_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             PlayerManager aboutUs = new PlayerManager();
             aboutUs.Show();
             this.Close();
@@ -27,6 +28,7 @@ namespace AiLaTrieuPhu_DEMO.View
 
         private void hoi_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             AdminManagementWindow howToPlay = new AdminManagementWindow();
             howToPlay.Show();
             this.Close();
@@ -34,6 +36,7 @@ namespace AiLaTrieuPhu_DEMO.View
 
         private void exit_Click(object sender, RoutedEventArgs e)
         {
+            SoundHelper.PlayClick();
             MenuGameWindow menu = new MenuGameWindow();
             menu.Show();
             this.Close();

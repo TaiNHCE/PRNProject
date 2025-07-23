@@ -79,9 +79,7 @@
                             <TextBlock FontSize="16" Foreground="White" TextWrapping="Wrap" LineHeight="26">
                                 • 50:50: Loại bỏ 2 phương án sai.
                                 <LineBreak/>
-                                • Gọi điện người thân: Gợi ý đáp án có thể đúng.
-                                <LineBreak/>
-                                • Hỏi ý kiến khán giả: Hiển thị tỷ lệ chọn.
+                                • Gỏi ý kiến tổ tư vấn: Gồm 4 người, mỗi người sẽ đưa đáp án của họ.
                             </TextBlock>
                         </StackPanel>
                     </Border>
